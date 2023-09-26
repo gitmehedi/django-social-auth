@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Social Login</title>
+</head>
+<body>
+{% load socialaccount %}
+{% if user.is_authenticated %}
+    <p>User is authenticated as {{ user.username }}.</p>
+    <a href="logout/">Logout</a>
+{% else %}
+    <h1>Social Login</h1>
+    <a href="{% provider_login_url 'google' %}?next=/">Login</a>
+{% endif %}
+</body>
+</html>
